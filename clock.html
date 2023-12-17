@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+      </style>
+    <title>Real-Time Clock</title>
+</head>
+<body>
+<div class="wrapper1">
+<div class="clock-container">
+    <div id="hours24"></div>
+    <div class="c1  ">:</div>
+    <div id="minutes24"></div>
+    <div class="colon2">:</div>
+    <div id="seconds24"></div>
+</div>
+</div>
+<div class="wrapper2">
+<div class="clock-container1">
+    
+    <div id="hours"></div>
+    <div id="1">:</div>
+    <div id="minutes"></div>
+    <div class="colon4">:</div>
+    <div id="seconds"></div>
+    <div class="colon5">:</div>
+    <div id="period"></div>
+
+</div>
+</div>
+
+<script>
+    setInterval(function(){
+    var d = new Date();
+    let hrs = d.getHours();
+    let min = d.getMinutes();
+    let sec = d.getSeconds();
+
+    document.getElementById("hours24").innerText = hrs;
+    document.getElementById("minutes24").innerText = min;
+    document.getElementById("seconds24").innerText = sec;
+}, 1000);
+
+setInterval(function(){
+    var d = new Date();
+    let hrs = d.getHours();
+    let min= d.getMinutes();
+    let sec=d.getSeconds();
+    let period = hrs >= 12 ? 'pm' : 'am';
+
+    hrs = hrs % 12;
+    hrs = hrs ? hrs : 12;
+    document.getElementById("hours").innerText = hrs;
+    document.getElementById("minutes").innerText = min;
+    document.getElementById("seconds").innerText = sec;
+    document.getElementById("period").innerText = period;
+
+},1000);
+    
+</script>
+
+</body>
+</html>
